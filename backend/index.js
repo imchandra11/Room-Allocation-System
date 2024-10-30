@@ -56,7 +56,11 @@ app.get('/api/bulk', async(req,res)=>{
     })
 })
 
-
+app.get('/test',(req,res)=>{
+    res.json({
+        msg : "Test route"
+    })
+})
 
 app.listen(3000, ()=>{
     console.log("Server Started")
