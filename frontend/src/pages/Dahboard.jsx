@@ -11,9 +11,11 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const base_url=import.meta.env.VITE_BACKEND_URL;
+
   useEffect(() => {
     setLoading(true);
-    axios.get(`https://roomallocationsystem.onrender.com/api/bulk?filter=${filter}`).then((res) => {
+    axios.get(`${base_url}/api/bulk?filter=${filter}`).then((res) => {
       setStudent(res.data.data);
       setLoading(false)
     });

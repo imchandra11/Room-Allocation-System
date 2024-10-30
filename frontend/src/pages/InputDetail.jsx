@@ -6,6 +6,10 @@ import Footer from '../components/Foot';
 import Swal from 'sweetalert2'
 
 const FormComponent = () => {
+
+  const base_url=import.meta.env.VITE_BACKEND_URL;
+
+
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
@@ -25,7 +29,7 @@ const FormComponent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://roomallocationsystem.onrender.com/api/addDetail', {
+      const res = await axios.post(`${base_url}/api/addDetail`, {
         name: formData.name,
         contact: formData.contact,
         currentHostel: formData.currentHostel,
